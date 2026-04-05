@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Finance Dashboard</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Finance Dashboard</h1>
+
+<div>
+
+<select id="roleSelector">
+
+<option value="viewer">Viewer</option>
+<option value="admin">Admin</option>
+
+</select>
+
+<button id="darkToggle">
+🌙 Dark Mode
+</button>
+
+</div>
+
+</header>
+
+<!-- DASHBOARD -->
+
+<section class="dashboard">
+
+<div class="card">
+<h3>Total Balance</h3>
+<p id="totalBalance">₹0</p>
+</div>
+
+<div class="card income">
+<h3>Total Income</h3>
+<p id="totalIncome">₹0</p>
+</div>
+
+<div class="card expense">
+<h3>Total Expenses</h3>
+<p id="totalExpense">₹0</p>
+</div>
+
+<select id="monthFilter">
+
+<option value="all">
+All Months
+</option>
+
+</select>
+
+</section>
+
+<!-- CHARTS -->
+
+<section class="charts">
+
+<div class="chart-box">
+
+<h3>Balance Trend</h3>
+
+<canvas id="lineChart"></canvas>
+
+</div>
+
+<div class="chart-box">
+
+<h3>Spending Breakdown</h3>
+
+<canvas id="pieChart"></canvas>
+
+</div>
+
+</section>
+
+<!-- TRANSACTIONS -->
+
+<section class="transactions">
+
+<h2>Transactions</h2>
+
+<div class="controls">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search category..."
+>
+
+<select id="filterType">
+
+<option value="all">All</option>
+<option value="income">Income</option>
+<option value="expense">Expense</option>
+
+</select>
+
+<button
+id="addBtn"
+class="admin-only"
+>
+Add Transaction
+</button>
+
+<button
+id="exportBtn"
+>
+Export CSV
+</button>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Category</th>
+<th>Type</th>
+<th>Amount</th>
+<th class="admin-only">
+Actions
+</th>
+
+</tr>
+
+</thead>
+
+<tbody id="transactionTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- INSIGHTS -->
+
+<section class="insights">
+
+<h2>Insights</h2>
+
+<ul id="insightsList">
+
+</ul>
+
+</section>
+
+<!-- MODAL -->
+
+<div id="modal" class="modal">
+
+<div class="modal-content">
+
+<h3 id="modalTitle">
+Add Transaction
+</h3>
+
+<input type="date"
+id="dateInput">
+
+<input type="text"
+id="categoryInput"
+placeholder="Category">
+
+<select id="typeInput">
+
+<option value="income">
+Income
+</option>
+
+<option value="expense">
+Expense
+</option>
+
+</select>
+
+<input type="number"
+id="amountInput"
+placeholder="Amount">
+
+<button id="saveBtn">
+Save
+</button>
+
+<button id="closeBtn">
+Cancel
+</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
